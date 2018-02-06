@@ -1,0 +1,88 @@
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Profiles</h1>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead> -->
+<thead>
+  <title>Users</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <style type="text/css">
+
+    .btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+  </style>
+</thead>
+  <tbody>
+  <div class="btn btn-primary"><%= link_to 'Create Profile', new_user_path %></a></div>
+    <div class="container">
+    <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-block">
+            <img class="card-img-top img-fluid" src=<%= "/profilephoto/#{user.profilephoto_filename}" if user.profilephoto_filename? %> alt="Card image cap">
+              <div class="card-block">
+              <h4 class="card-title"><%= user.name %></h4>
+              <p class="card-text"><%= user.description %></p>
+              <div class="btn btn-primary"><%= link_to 'Edit', edit_user_path(user) %></a>
+              </div>
+              <div class="btn btn-primary"><%= link_to 'Destroy',  user, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.description %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr> -->
+    <% end %>
+        </div>
+    </div>
+  </tbody>
+<!-- </table>
+ -->
+<br>
+
